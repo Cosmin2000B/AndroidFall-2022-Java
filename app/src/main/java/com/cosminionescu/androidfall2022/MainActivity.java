@@ -32,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         editTextEmail = findViewById(R.id.editTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextPassword);
+
         textViewDisplayAccount = findViewById(R.id.textViewDisplayAccount);
+        textViewDisplayAccount.setOnClickListener(this::loginOnClick);
     }
 
     public void loginOnClick(View view) {
