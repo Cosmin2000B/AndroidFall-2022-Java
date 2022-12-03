@@ -32,6 +32,7 @@
         android:textAlignment="center" />
 
     <Button
+        android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
@@ -63,4 +64,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="TextView3" />
+
+    <Button
+        android:id="@+id/buttonAboutAndroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_android_views"/>
+
 </LinearLayout>

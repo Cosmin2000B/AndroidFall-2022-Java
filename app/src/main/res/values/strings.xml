@@ -4,4 +4,6 @@
     <string name="hint_password">Please add your password</string>
     <string name="login">LOGIN</string>
     <string name="display_account">Email and Password</string>
+    <string name="about_android_views">About Android views</string>
+    <string name="about_android">About Android</string>
 </resources>
