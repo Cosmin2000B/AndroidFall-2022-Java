@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 /**
  *
  */
@@ -40,13 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         // clasa R pt resurse -> ia layout
         setContentView(R.layout.login);
+        setupViews();
 
-        editTextEmail = findViewById(R.id.editTextEmailAddress);
-        editTextPassword = findViewById(R.id.editTextPassword);
-
-        buttonDisplayAndroid = findViewById(R.id.buttonAboutAndroid);
+        textViewDisplayAccount.setOnClickListener(this::loginOnClick);
         buttonDisplayAndroid.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 Intent moveFromMainToAboutAndroid =
@@ -54,9 +50,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(moveFromMainToAboutAndroid);
             }
         });
+    }
 
+    /**
+     * Better to have this in it's own method
+     */
+    private void setupViews() {
+
+        editTextEmail = findViewById(R.id.editTextEmailAddress);
+        editTextPassword = findViewById(R.id.editTextPassword);
         textViewDisplayAccount = findViewById(R.id.textViewDisplayAccount);
-        textViewDisplayAccount.setOnClickListener(this::loginOnClick);
+        buttonDisplayAndroid = findViewById(R.id.buttonAboutAndroid);
     }
 
     public void loginOnClick(View view) {
@@ -82,13 +86,45 @@ public class MainActivity extends AppCompatActivity {
             // Log.e <=> Log.error
             // Log.e(TAG, "email is empty"); // log valid
             Toast.makeText(
-                            MainActivity.this,
-                            "Email adress is not valid",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    MainActivity.this,
+                    "Email adress is not valid",
+                    Toast.LENGTH_SHORT
+            ).show();
         } else if (password.length() <= 0) {
             editTextPassword.setError("Please add your password");
             Log.e(TAG, "password is empty");
         }
+    }
+
+    public EditText getEditTextEmail() {
+        return editTextEmail;
+    }
+
+    public void setEditTextEmail(EditText editTextEmail) {
+        this.editTextEmail = editTextEmail;
+    }
+
+    public EditText getEditTextPassword() {
+        return editTextPassword;
+    }
+
+    public void setEditTextPassword(EditText editTextPassword) {
+        this.editTextPassword = editTextPassword;
+    }
+
+    public TextView getTextViewDisplayAccount() {
+        return textViewDisplayAccount;
+    }
+
+    public void setTextViewDisplayAccount(TextView textViewDisplayAccount) {
+        this.textViewDisplayAccount = textViewDisplayAccount;
+    }
+
+    public Button getButtonDisplayAndroid() {
+        return buttonDisplayAndroid;
+    }
+
+    public void setButtonDisplayAndroid(Button buttonDisplayAndroid) {
+        this.buttonDisplayAndroid = buttonDisplayAndroid;
     }
 }
