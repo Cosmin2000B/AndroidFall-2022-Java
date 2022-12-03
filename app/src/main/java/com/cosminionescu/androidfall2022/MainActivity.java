@@ -42,13 +42,10 @@ public class MainActivity extends AppCompatActivity {
         setupViews();
 
         textViewDisplayAccount.setOnClickListener(this::loginOnClick);
-        buttonDisplayAndroid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent moveFromMainToAboutAndroid =
-                        new Intent(MainActivity.this, AboutAndroid.class);
-                startActivity(moveFromMainToAboutAndroid);
-            }
+        buttonDisplayAndroid.setOnClickListener(view -> {
+            Intent moveFromMainToAboutAndroid =
+                    new Intent(MainActivity.this, AboutAndroid.class);
+            startActivity(moveFromMainToAboutAndroid);
         });
     }
 

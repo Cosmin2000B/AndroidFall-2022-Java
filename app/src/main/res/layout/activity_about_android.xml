@@ -3,11 +3,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AboutAndroid">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/about_android" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background" />
+
+    <!-- folosit pt separatori si chenare, se pot utiliza valori hardcodate -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/purple_200" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accept_termeni_conditii" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yes" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no" />
+
+    </RadioGroup>
+
+    <RatingBar
+        android:id="@+id/androidRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:rating="3"
+        android:stepSize="0.5" /> <!-- stepSize = din cate n cate stele se poate selecta -->
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchBackup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/enable_back_up" />
+
+    <!--
+    setare luminozitate, pret etc
+    vezi invisible vs gone la visibility
+    -->
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="25"
+        android:visibility="visible"/>
+
+    <!-- TODO: make it work
+    <ProgressBar
+        android:id="@+id/progressBarAboutAndroid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/material_dynamic_secondary30"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Text1"
+            android:textColor="@color/purple_200"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Text2"
+            android:textColor="@color/purple_500"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Text3"
+            android:textColor="@color/purple_700"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_200">
+
+        <TextView
+            android:layout_width="@dimen/big_space"
+            android:layout_height="@dimen/big_space"
+            android:background="@color/cardview_dark_background"/>
+
+        <TextView
+            android:layout_width="@dimen/big_space"
+            android:layout_height="@dimen/big_space"
+            android:background="@color/purple_500"
+            android:layout_gravity="center_horizontal"/>
+
+    </FrameLayout>
+
+    <Spinner
+        android:id="@+id/spinnerCitiesList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

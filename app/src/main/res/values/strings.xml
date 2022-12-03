@@ -6,4 +6,8 @@
     <string name="display_account">Email and Password</string>
     <string name="about_android_views">About Android views</string>
     <string name="about_android">About Android</string>
+    <string name="accept_termeni_conditii"><![CDATA[Accept termeni & conditii]]></string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="enable_back_up">Enable back-up</string>
 </resources>
