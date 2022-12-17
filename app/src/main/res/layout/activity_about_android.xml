@@ -52,7 +52,8 @@
         android:isIndicator="true"
         android:numStars="5"
         android:rating="3"
-        android:stepSize="0.5" /> <!-- stepSize = din cate n cate stele se poate selecta -->
+        android:stepSize="0.5" />
+    <!-- stepSize = din cate n cate stele se poate selecta -->
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchBackup"
@@ -129,6 +130,12 @@
             android:layout_gravity="center_horizontal"/>
 
     </FrameLayout>
+
+    <WebView
+        android:id="@+id/webViewChristmas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <Spinner
         android:id="@+id/spinnerCitiesList"

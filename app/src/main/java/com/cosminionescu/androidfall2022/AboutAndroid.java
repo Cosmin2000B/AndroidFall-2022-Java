@@ -1,27 +1,22 @@
 package com.cosminionescu.androidfall2022;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
-
-import android.media.Rating;
 import android.os.Bundle;
-import android.view.View;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
-import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AboutAndroid extends AppCompatActivity {
+    private static final String SANTA_URL = "https://santatracker.google.com/";
 
-    private static final String SANTA_URL = "https://www.google.com/";
-
-    private RatingBar androidRatingBar;
-    private ProgressBar progressBarAboutAndroid;
-    private SwitchCompat switchBackup;
+    private RatingBar ratingBarAndroid;
+    private SwitchCompat switchBackUp;
     private WebView webViewChristmas;
     private Spinner spinnerCities;
 
@@ -29,34 +24,38 @@ public class AboutAndroid extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_android);
 
-        setupViews();
-        float rating = androidRatingBar.getRating();
+        setupRatingBar();
 
-        if(switchBackup.isChecked()) {
-            //do something
-        }
-    }
+        setupSwitch();
 
-    private void setupViews() {
-        androidRatingBar.findViewById(R.id.androidRatingBar);
-        switchBackup.findViewById(R.id.switchBackup);
-        /* TODO make it work
-        progressBarAboutAndroid.findViewById(R.id.progressBarAboutAndroid);
-        progressBarAboutAndroid.setVisibility(View.INVISIBLE);
-         */
-        webViewChristmas.loadUrl(SANTA_URL);
-        webViewChristmas.getSettings().setJavaScriptEnabled(true);
+        setupWebView();
 
         setupSpinner();
     }
 
-    // STEP 0: Add Spinner in xml Yap, spinnerCitiesList
+    private void setupWebView() {
+        webViewChristmas = findViewById(R.id.webViewChristmas);
+        webViewChristmas.getSettings().setJavaScriptEnabled(true);
+        webViewChristmas.loadUrl(SANTA_URL);
+    }
 
-    // STEP1: define the data source
+    private void setupSwitch() {
+        switchBackUp = findViewById(R.id.switchBackup);
+        if (switchBackUp.isChecked()) {
+            // do something
+        }
+    }
+
+    private void setupRatingBar() {
+        ratingBarAndroid = findViewById(R.id.androidRatingBar);
+        ratingBarAndroid.getRating();
+    }
+    // zero step => add the Spinner in the xml - DONE
+
+    // first step => define the data source (usually from a db or a web service) - DONE
     private void setCities() {
         cities = new ArrayList<>();
         cities.add("Pitesti");
@@ -64,22 +63,26 @@ public class AboutAndroid extends AppCompatActivity {
         cities.add("Oradea");
         cities.add("Zalau");
         cities.add("Braila");
+        cities.add("Bucuresti");
+        cities.add("Craiova");
         cities.add("Galati");
         cities.add("Brasov");
         cities.add("Ploiesti");
         cities.add("Timisoara");
     }
 
-    // STEP 2: Define Adaptor
+    // second step => define the default adapter - DONE
     private ArrayAdapter<String> getDefaultAdapter() {
-        return new ArrayAdapter<>(
-                AboutAndroid.this, android.R.layout.simple_spinner_item, cities);
+        return new ArrayAdapter<String>(AboutAndroid.this, android.R.layout.simple_spinner_item, cities);
     }
 
-    // STEP 3: Setare adaptor
+    // third step => for spinner set the adapter
     private void setupSpinner() {
-        spinnerCities.findViewById(R.id.spinnerCitiesList);
+        spinnerCities = findViewById(R.id.spinnerCitiesList);
+
+        // populate the data source
         setCities();
+
         spinnerCities.setAdapter(getDefaultAdapter());
     }
 

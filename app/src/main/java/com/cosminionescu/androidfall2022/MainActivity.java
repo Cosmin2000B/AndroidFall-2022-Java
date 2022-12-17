@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.login);
         setupViews();
 
+        // onClick actions config
         textViewDisplayAccount.setOnClickListener(this::loginOnClick);
         buttonDisplayAndroid.setOnClickListener(view -> {
             Intent moveFromMainToAboutAndroid =
@@ -74,24 +75,51 @@ public class MainActivity extends AppCompatActivity {
                                 .append(" ")
                                 .append(password)
                 );
+
+                moveToMoviesActivity(email, password);
             } else {
-                editTextEmail.setError("Please enter valid email");
-                Log.e(TAG, "email doesn't have a valid format");
+                invalidEmailFormat(
+                        editTextEmail,
+                        "Please enter valid email",
+                        "email doesn't have a valid format"
+                );
             }
         } else if (email.length() <= 0) {
-            editTextEmail.setError("Please add your email address");
-            // Log.e <=> Log.error
-            // Log.e(TAG, "email is empty"); // log valid
-            Toast.makeText(
-                    MainActivity.this,
-                    "Email adress is not valid",
-                    Toast.LENGTH_SHORT
-            ).show();
+            invalidEmailLength();
         } else if (password.length() <= 0) {
             editTextPassword.setError("Please add your password");
             Log.e(TAG, "password is empty");
         }
     }
+
+    private void moveToMoviesActivity(String email, String password) {
+        textViewDisplayAccount
+                .setText(new StringBuilder().append(email).append(", ").append(password).toString());
+        Intent displayMoviesActivity =
+                new Intent(MainActivity.this, MoviesActivity.class);
+
+        startActivity(displayMoviesActivity);
+    }
+
+    private void invalidEmailLength() {
+        editTextEmail.setError("Please add your email address");
+        // Log.e <=> Log.error
+        // Log.e(TAG, "email is empty"); // log valid
+        Toast.makeText(
+                MainActivity.this,
+                "Email adress is not valid",
+                Toast.LENGTH_SHORT
+        ).show();
+    }
+
+    private void invalidEmailFormat(EditText editTextEmail, String Please_enter_valid_email, String msg) {
+        editTextEmail.setError(Please_enter_valid_email);
+        Log.e(TAG, msg);
+    }
+
+    /*
+       ******** Boilerplate code **********
+     */
 
     public EditText getEditTextEmail() {
         return editTextEmail;
