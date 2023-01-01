@@ -32,13 +32,19 @@ public class MoviesActivity extends AppCompatActivity {
     private void setMovies() {
         movieList = new ArrayList<>();
 
-        movieList.add(new Movie("Home Alone", "comedy", ""));
+        movieList.add(new Movie("Home Alone", "Comedy", ""));
         movieList.add(new Movie("Harry Potter", "Fantasy", ""));
         movieList.add(new Movie("Kill Bill", "Action", ""));
         movieList.add(new Movie("Avatar", "SF", ""));
         movieList.add(new Movie("Matrix", "Action", ""));
         movieList.add(new Movie("The Light House", "SF", ""));
         movieList.add(new Movie("Annabelle", "Horror", ""));
+        movieList.add(new Movie("Amadeus", "Artistic", ""));
+        movieList.add(new Movie("Eyes Wide Shut", "SF", ""));
+        movieList.add(new Movie("A Bridge Too Far", "Action", ""));
+        movieList.add(new Movie("Nothing New on the Western Front", "Action", ""));
+        movieList.add(new Movie("Killing a Mocking Bird", "Artistic", ""));
+        movieList.add(new Movie("Gone with the Wind", "Artistic", ""));
         movieList.add(new Movie("Spiderman", "Action", ""));
     }
 
