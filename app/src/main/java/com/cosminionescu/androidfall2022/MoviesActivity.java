@@ -24,10 +24,14 @@ public class MoviesActivity extends AppCompatActivity {
         setupRecyclerView();
     }
 
+    /* ****************************************
+         TODO: Look here for RecyclerView.
+    **************************************** */
+
     // STEP 0 => add RecyclerView in xml
 
     // STEP 1: get data source
-    // 1.1. crate dedicated class for movie
+    // 1.1. create dedicated class for movie
     // 1.2. populate datasource
     private void setMovies() {
         movieList = new ArrayList<>();
@@ -51,15 +55,15 @@ public class MoviesActivity extends AppCompatActivity {
     // STEP 2: get costumer adapter
     // 2.1. define the ViewHolder
     // 2.2. define the Adapter
-    // setAdapter...movieList
+    // setAdapter()...movieList
 
-    // STEP 3: setup adapter fir RecyclerView
+    // STEP 3: setup adapter for RecyclerView
     // 3.1. setup LayoutManager
-    // 3.2. setup adapter
     private void setMoviesLayoutManager(){
         moviesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    // 3.2. setup adapter
     private void setMoviesAdapter() {
         moviesRecyclerView.setAdapter(new MovieAdapter(movieList));
     }

@@ -20,7 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+    /**
+     * Email to get from user
+     */
     private EditText editTextEmail;
+    /**
+     * Password to get from user
+     */
     private EditText editTextPassword;
     private TextView textViewDisplayAccount;
 

@@ -54,13 +54,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
      */
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
+
+        /*
+        Idee:
+                position poate fi utilizat si pentru alte lucruri:
+                pare - colorate albastru/ impare - coorate rosu
+         */
         Movie currentMovie = movieList.get(position);
         holder.getTextViewTitle().setText(currentMovie.getTitle());
         holder.getTextViewCategory().setText(currentMovie.getCategory());
     }
 
     /**
-     * Cati itemi vrem sa avem afisat in acelasi timp
+     * Cati itemi vrem sa avem afisati in acelasi timp
      * @return nr itemi
      */
     @Override

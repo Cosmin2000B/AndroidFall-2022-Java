@@ -53,6 +53,11 @@ public class AboutAndroid extends AppCompatActivity {
         ratingBarAndroid = findViewById(R.id.androidRatingBar);
         ratingBarAndroid.getRating();
     }
+
+    /* ****************************************
+         TODO: Look here for Spinner.
+       **************************************** */
+
     // zero step => add the Spinner in the xml - DONE
 
     // first step => define the data source (usually from a db or a web service) - DONE
