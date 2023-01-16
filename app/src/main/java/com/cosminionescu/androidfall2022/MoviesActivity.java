@@ -33,6 +33,10 @@ public class MoviesActivity extends AppCompatActivity {
     // STEP 1: get data source
     // 1.1. create dedicated class for movie
     // 1.2. populate datasource
+    /**
+     *   Good practice: apeleaz-o in onResume() -> varianta safe in cadrul
+     * lifecycle-ului (ne asiguram ca datasource-ul este cel mai recent).
+     */
     private void setMovies() {
         movieList = new ArrayList<>();
 
