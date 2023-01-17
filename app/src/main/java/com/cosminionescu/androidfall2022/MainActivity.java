@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cosminionescu.androidfall2022.activities.FirstActivity;
+
 
 /**
  *
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewDisplayAccount;
 
     private Button buttonDisplayAndroid;
+    private Button buttonOpenActivity;
 
 
     /**
@@ -54,10 +57,11 @@ public class MainActivity extends AppCompatActivity {
                     new Intent(MainActivity.this, AboutAndroid.class);
             startActivity(moveFromMainToAboutAndroid);
         });
+        openActivityOnClick();
     }
 
     /**
-     * Better to have this in it's own method
+     * Better to have this in its own method
      */
     private void setupViews() {
 
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         textViewDisplayAccount = findViewById(R.id.textViewDisplayAccount);
         buttonDisplayAndroid = findViewById(R.id.buttonAboutAndroid);
+        buttonOpenActivity = findViewById(R.id.buttonOpenActivity);
     }
 
     public void loginOnClick(View view) {
@@ -98,6 +103,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void openActivityOnClick() {
+        buttonOpenActivity.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, FirstActivity.class);
+            startActivity(intent);
+        });
+    }
+
     private void moveToMoviesActivity(String email, String password) {
         textViewDisplayAccount
                 .setText(new StringBuilder().append(email).append(", ").append(password).toString());
@@ -123,9 +135,9 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, msg);
     }
 
-    /*
-       ******** Boilerplate code **********
-     */
+    /* *****************************************************************************
+                         ******** Boilerplate code **********
+    */
 
     public EditText getEditTextEmail() {
         return editTextEmail;

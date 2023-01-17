@@ -10,4 +10,5 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="enable_back_up">Enable back-up</string>
+    <string name="open_activity">Open Activity</string>
 </resources>
