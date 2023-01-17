@@ -2,8 +2,11 @@ package com.cosminionescu.androidfall2022.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import com.cosminionescu.androidfall2022.R;
 
@@ -13,6 +16,8 @@ import com.cosminionescu.androidfall2022.R;
 public class FirstActivity extends AppCompatActivity {
 
     private final String TAG = "FirstActivity";
+    private Button buttonDial;
+    private Button buttonOpenWebsite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +25,52 @@ public class FirstActivity extends AppCompatActivity {
         setContentView(R.layout.activity_first);
 
         Log.e(TAG, "onCreate");
+
+        setupButtonDial();
+        setupButtonOpenWebsite();
+    }
+
+    /**
+     * TODO: see example of implicit intent
+     *  - Se poate utiliza si pt Google Maps
+     */
+    private void setupButtonDial() {
+        buttonDial = findViewById(R.id.buttonDial);
+        buttonDial.setOnClickListener(view -> {
+            /* ---- Poate crea probleme privacy -> getPackageManager poate fi utilizat fraudulos
+            Intent dialActivity = new Intent(Intent.ACTION_DIAL);
+            dialActivity.setData(Uri.parse("tel:0711312244"));
+
+            // TODO SEE: good check against starting an Activity when it can't actually start !!
+            if(dialActivity.resolveActivity(getPackageManager()) != null) {
+                // implicit intent -> no context needed for the activity to start
+                startActivity(dialActivity);
+            }
+             */
+            // Alternativa:
+            try {
+                Intent dialActivity = new Intent(Intent.ACTION_DIAL);
+                dialActivity.setData(Uri.parse("tel:0711312244"));
+                startActivity(dialActivity);
+            }
+            catch (Exception e) {
+                // Handle exception when activity can't start
+            }
+        });
+    }
+
+    private void setupButtonOpenWebsite() {
+        buttonOpenWebsite = findViewById(R.id.buttonOpenWebsite);
+        buttonOpenWebsite.setOnClickListener(view -> {
+            try {
+                Intent webActivity = new Intent(Intent.ACTION_VIEW);
+                webActivity.setData(Uri.parse("https://www.google.ro"));
+                startActivity(webActivity);
+            }
+            catch (Exception e) {
+                // Handle exception when activity can't start
+            }
+        });
     }
 
     @Override

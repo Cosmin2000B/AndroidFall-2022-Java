@@ -11,4 +11,7 @@
     <string name="no">No</string>
     <string name="enable_back_up">Enable back-up</string>
     <string name="open_activity">Open Activity</string>
+    <string name="dial">Dial</string>
+    <string name="implicit_intent_examples">Implicit Intent Examples</string>
+    <string name="website">Website</string>
 </resources>
