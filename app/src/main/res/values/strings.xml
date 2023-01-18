@@ -14,4 +14,8 @@
     <string name="dial">Dial</string>
     <string name="implicit_intent_examples">Implicit Intent Examples</string>
     <string name="website">Website</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="this_is_the_second_activity">This is the second activity</string>
+    <string name="open_second_activity">Open second activity</string>
 </resources>

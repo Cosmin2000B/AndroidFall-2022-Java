@@ -18,6 +18,7 @@ public class FirstActivity extends AppCompatActivity {
     private final String TAG = "FirstActivity";
     private Button buttonDial;
     private Button buttonOpenWebsite;
+    private Button buttonSecondActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class FirstActivity extends AppCompatActivity {
 
         setupButtonDial();
         setupButtonOpenWebsite();
+        setupButtonSecondActivity();
     }
 
     /**
@@ -72,6 +74,23 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * TODO: see for Fragment example
+     */
+    private void setupButtonSecondActivity() {
+        buttonSecondActivity = findViewById(R.id.buttonSecondActivity);
+        buttonSecondActivity.setOnClickListener(view -> {
+            try {
+                Intent moveToSecondActivity = new Intent(this, SecondActivity.class);
+                startActivity(moveToSecondActivity);
+            }
+            catch (Exception e) {
+                // Handle exception when activity can't start
+            }
+        });
+    }
+
 
     @Override
     protected void onStart() {
