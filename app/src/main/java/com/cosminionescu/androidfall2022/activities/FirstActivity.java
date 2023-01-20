@@ -127,4 +127,13 @@ public class FirstActivity extends AppCompatActivity {
         super.onDestroy();
         Log.e(TAG, "onDestroy");
     }
+
+    /**
+     * Action for when the back button is pressed from the FirstActivity
+     */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.e("FirstActivity", "on back pressed");
+    }
 }
