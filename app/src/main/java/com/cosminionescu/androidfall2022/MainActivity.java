@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cosminionescu.androidfall2022.activities.FirstActivity;
+import com.cosminionescu.androidfall2022.navigation.NavigationActivity;
 
 
 /**
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonDisplayAndroid;
     private Button buttonOpenActivity;
+    private Button buttonOpenNavigationActivity;
 
 
     /**
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(moveFromMainToAboutAndroid);
         });
         openActivityOnClick();
+        openNavigationActivityOnClick();
     }
 
     /**
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         textViewDisplayAccount = findViewById(R.id.textViewDisplayAccount);
         buttonDisplayAndroid = findViewById(R.id.buttonAboutAndroid);
         buttonOpenActivity = findViewById(R.id.buttonOpenActivity);
+        buttonOpenNavigationActivity = findViewById(R.id.buttonOpenNavigationActivity);
     }
 
     public void loginOnClick(View view) {
@@ -107,6 +111,13 @@ public class MainActivity extends AppCompatActivity {
         buttonOpenActivity.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, FirstActivity.class);
             startActivity(intent);
+        });
+    }
+
+    private void openNavigationActivityOnClick() {
+        buttonOpenNavigationActivity.setOnClickListener(view -> {
+            Intent toNavActivity = new Intent(this, NavigationActivity.class);
+            startActivity(toNavActivity);
         });
     }
 
